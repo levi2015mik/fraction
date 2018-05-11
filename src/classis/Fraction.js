@@ -13,13 +13,15 @@ class Fraction {
    * @param denom {number} знаменатель
    * @param whole {number} целая часть
    */
-  constructor(num,denom,whole){
+  constructor(num,denom,whole,sign){
     this.num = num;
     this.denom = denom;
     if(typeof whole != "undefined")
       this.whole = whole;
     else this.whole = 0;
-    this.sign = false;
+    if(typeof sign != "undefined")
+      this.sign = sign;
+    else this.sign = 0;
 
     this.signify(true);
   }

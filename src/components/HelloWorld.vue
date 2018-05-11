@@ -2,6 +2,9 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <FractionOutput v-for="frc in fr" :fraction="frc"/>
+    <div>
+      <FractionInput v-model="binded"/><FractionOutput :fraction="binded"/>
+    </div>
   </div>
 
 </template>
@@ -25,7 +28,8 @@ export default {
   data: function (){
     return {
       msg: 'Welcome to Your Vue.js App',
-      fr:[]
+      fr:[],
+      binded:new Fraction(1,5,-3)
     }
   }
 }
