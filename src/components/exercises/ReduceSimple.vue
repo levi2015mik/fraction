@@ -34,14 +34,13 @@
 
       //Проверка правильности ответа и передача наверх результата
       submit:function(){
-        // TODO Проверка ответа, составление строк результата
-
         var answer = fracKatexFmt(this.question) + "="
           + fracKatexFmt(this.answer);
         var right = fracKatexFmt(this.question) + "="
           + fracKatexFmt(this.right);
+        var isRight = this.answer.equal(this.right);
         return {
-          isRight:false,
+          isRight:isRight,
           answer:answer,
           right:right
         }

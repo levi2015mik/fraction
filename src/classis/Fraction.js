@@ -117,12 +117,38 @@ class Fraction {
    */
   equal(testable){
     if(
-      this.num == testable.num &&
-      this.denom == testable.denom &&
-      this.whole == testable.whole &&
-      this.sign == testable.sign
-    )
-      return true;
+        this.num == testable.num
+        &&
+      (  this.denom == testable.denom ||
+        (this.denom == 0 && testable.denom == undefined) ||
+        (this.denom == undefined && testable.denom == 0)
+      ) &&
+      (  this.whole == testable.whole ||
+        (this.whole == 0 && testable.whole == undefined) ||
+        (this.whole == undefined && testable.whole == 0)
+      ) &&
+      (  this.sign == testable.sign ||
+        (this.sign == false && testable.sign == undefined) ||
+        (this.sign == undefined && testable.sign == false)
+      ) ||
+      (
+        (
+          (this.num == 0 && testable.num == undefined) ||
+          (this.num == undefined && testable.num == 0)
+        ) &&
+        (
+          this.sign == testable.sign ||
+          (this.sign == false && testable.sign == undefined) ||
+          (this.sign == undefined && testable.sign == false)
+        ) &&
+        (
+          this.whole == testable.whole ||
+          (this.whole == 0 && testable.whole == undefined) ||
+          (this.whole == undefined && testable.whole == 0)
+        )
+      )
+    ){ alert("Ok");
+      return true;}
     else
       return false;
   }
