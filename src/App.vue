@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <router-link to="/">Главное меню</router-link>
+    <router-link to="/test/7960">Задание</router-link>
     <router-view/>
   </div>
 </template>

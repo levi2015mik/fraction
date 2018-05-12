@@ -14,15 +14,15 @@ var Fraction = function () {
    * @param num {number} числитель
    * @param denom {number} знаменатель
    * @param whole {number} целая часть
+   * @param sign {boolean} Знак числа. Если true - отрицательное
    */
   function Fraction(num, denom, whole, sign) {
     _classCallCheck(this, Fraction);
 
-    this.num = num;
-    this.denom = denom;
-    if (typeof whole != "undefined") this.whole = whole;else this.whole = 0;
-    if (typeof sign != "undefined") this.sign = sign;else this.sign = 0;
-
+    if (typeof num != "undefined") this.num = num;
+    if (typeof denom != "undefined") this.denom = denom;
+    if (typeof whole != "undefined") this.whole = whole;
+    if (typeof sign != "undefined") this.sign = sign;
     this.signify(true);
   }
 
@@ -48,7 +48,7 @@ var Fraction = function () {
         }
       }
       if (k == 0) return false;else {
-        var out = new Fraction(a, b, 0);
+        var out = new Fraction(a, b, 0, this.sign);
         out.sign = this.sign;
         return out;
       }
@@ -65,7 +65,7 @@ var Fraction = function () {
       if (this.num < this.denom) return this;
       var whole = Math.floor(this.num / this.denom) + this.whole;
       var num = this.num % this.denom;
-      return new Fraction(num, this.denom, whole);
+      return new Fraction(num, this.denom, whole, this.sign);
     }
 
     /**
@@ -77,7 +77,7 @@ var Fraction = function () {
     key: "integrWhole",
     value: function integrWhole() {
       var num = this.whole * this.denom + this.num;
-      return new Fraction(num, this.denom, 0);
+      return new Fraction(num, this.denom, 0, this.sign);
     }
 
     /**
@@ -92,9 +92,9 @@ var Fraction = function () {
     value: function signify(local) {
       var out;
       var indicator = 1;
-      if (this.num != 0) indicator *= this.num;
-      if (this.denom != 0) indicator *= this.denom;
-      if (this.whole < 0) {
+      if (this.num != 0 && this.num != undefined) indicator *= this.num;
+      if (this.denom != 0 && this.denom != undefined) indicator *= this.denom;
+      if (this.whole < 0 && this.whole != undefined) {
         indicator = -1;
       }
 
@@ -117,6 +117,18 @@ var Fraction = function () {
       out = new Fraction(num, denom, whole);
       out.sign = true;
       return out;
+    }
+
+    /**
+     * Сравнение двух дробей. Если они равны - возвращает true
+     * @param {Fraction} testable
+     * @returns {boolean}
+     */
+
+  }, {
+    key: "equal",
+    value: function equal(testable) {
+      if (this.num == testable.num && this.denom == testable.denom && this.whole == testable.whole && this.sign == testable.sign) return true;else return false;
     }
 
     /**

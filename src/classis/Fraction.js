@@ -12,17 +12,17 @@ class Fraction {
    * @param num {number} числитель
    * @param denom {number} знаменатель
    * @param whole {number} целая часть
+   * @param sign {boolean} Знак числа. Если true - отрицательное
    */
   constructor(num,denom,whole,sign){
-    this.num = num;
+    if(typeof num != "undefined")
+      this.num = num;
+    if(typeof denom != "undefined")
     this.denom = denom;
     if(typeof whole != "undefined")
       this.whole = whole;
-    else this.whole = 0;
     if(typeof sign != "undefined")
       this.sign = sign;
-    else this.sign = 0;
-
     this.signify(true);
   }
 
@@ -45,7 +45,7 @@ class Fraction {
     }
     if(k == 0) return false;
     else {
-      let out = new Fraction(a,b,0);
+      let out = new Fraction(a,b,0,this.sign);
       out.sign = this.sign;
       return out
     }
@@ -59,7 +59,7 @@ class Fraction {
     if(this.num < this.denom) return this;
     var whole = Math.floor(this.num / this.denom) + this.whole;
     var num = this.num % this.denom;
-    return new Fraction(num,this.denom,whole)
+    return new Fraction(num,this.denom,whole,this.sign)
   }
 
   /**
@@ -68,7 +68,7 @@ class Fraction {
    */
   integrWhole() {
     var num = this.whole * this.denom + this.num;
-    return new Fraction(num, this.denom, 0);
+    return new Fraction(num, this.denom, 0,this.sign);
   }
 
   /**
@@ -80,11 +80,11 @@ class Fraction {
   signify(local){
     var out;
     var indicator = 1;
-    if(this.num != 0)
+    if(this.num != 0 && this.num != undefined)
       indicator *= this.num;
-    if(this.denom != 0)
+    if(this.denom != 0 && this.denom != undefined)
       indicator *= this.denom;
-    if(this.whole < 0) {
+    if(this.whole < 0 && this.whole != undefined) {
       indicator = -1;
     }
 
@@ -108,6 +108,23 @@ class Fraction {
     out = new Fraction(num, denom, whole);
     out.sign = true;
     return out;
+  }
+
+  /**
+   * Сравнение двух дробей. Если они равны - возвращает true
+   * @param {Fraction} testable
+   * @returns {boolean}
+   */
+  equal(testable){
+    if(
+      this.num == testable.num &&
+      this.denom == testable.denom &&
+      this.whole == testable.whole &&
+      this.sign == testable.sign
+    )
+      return true;
+    else
+      return false;
   }
 
   /**
