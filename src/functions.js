@@ -18,15 +18,15 @@ function getIntRandom(min,max){
  * @returns {string}
  */
 function fracKatexFmt(fraction){
-  var out = "";
+  let out = "";
   if(fraction.sign)
     out ="-";
-  if(typeof fraction.whole != "undefined" && fraction.whole !=0 && !isNaN(fraction.whole))
+  if(typeof fraction.whole !== "undefined" && fraction.whole !== 0 && !isNaN(fraction.whole))
     out += fraction.whole;
-  else if(typeof fraction.num == "undefined" || fraction.num ==0)
+  else if(typeof fraction.num === "undefined" || fraction.num === 0)
     out += "0";
-  if(typeof fraction.num != "undefined" && fraction.num !=0 &&
-     typeof fraction.denom != "undefined" && fraction.denom !=0)
+  if(typeof fraction.num !== "undefined" && fraction.num !== 0 &&
+     typeof fraction.denom !== "undefined" && fraction.denom !== 0)
     out +=`\\frac{${fraction.num}}{${fraction.denom}}`;
 
   return out

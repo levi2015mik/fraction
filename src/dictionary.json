@@ -1,0 +1,35 @@
+{
+  "name"  :{
+    "name":"Название",
+    "description":"Так будет называться задание в списках и меню"
+  },
+  "component" :{
+      "name":"компонент",
+      "description":"В приложении могут быть разные компоненты, предоставляющие доступ к разным типам заданий",
+      "options":["ReduceSimple"]
+  },
+  "showRight" :{
+      "name":"показывать правильные ответы",
+      "description":""},
+  "fraction"  :{
+      "name":"Параметры дроби",
+      "description":""},
+  "num"  :{
+    "name":"числитель",
+    "description":""},
+  "denom"  :{
+    "name":"знаменатель",
+    "description":""},
+  "whole"  :{
+    "name":"целая часть",
+    "description":""},
+  "coef"  :{
+    "name":"коэффициент умножения",
+    "description":""},
+  "x"  :{
+    "name":"приращение числителя",
+    "description":""},
+  "y"  :{
+    "name":"приращение знаменателя",
+    "description":""}
+}

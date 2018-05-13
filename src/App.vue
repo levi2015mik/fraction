@@ -1,14 +1,16 @@
 <template>
   <div id="app">
     <router-link to="/">Главное меню</router-link>
+    <router-link to="/exerclist">Список заданий</router-link>
     <router-link to="/test/7960">Задание</router-link>
+    <router-link to="/settings/7960">Настройки</router-link>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 

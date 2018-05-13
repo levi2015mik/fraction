@@ -15,13 +15,13 @@ class Fraction {
    * @param sign {boolean} Знак числа. Если true - отрицательное
    */
   constructor(num,denom,whole,sign){
-    if(typeof num != "undefined")
+    if(typeof num !== "undefined")
       this.num = num;
-    if(typeof denom != "undefined")
+    if(typeof denom !== "undefined")
     this.denom = denom;
-    if(typeof whole != "undefined")
+    if(typeof whole !== "undefined")
       this.whole = whole;
-    if(typeof sign != "undefined")
+    if(typeof sign !== "undefined")
       this.sign = sign;
     this.signify(true);
   }
@@ -32,18 +32,18 @@ class Fraction {
    * @returns {boolean|Fraction}
    */
   reduce(){
-    var self = this.integrWhole();
-    var a = self.num;
-    var b = self.denom;
-    var k = 0;
-    for(var i = 2; i<999;i++){
-      if(a%i == 0 && b%i == 0){
+    let self = this.integrWhole();
+    let a = self.num;
+    let b = self.denom;
+    let k = 0;
+    for(let i = 2; i<999;i++){
+      if(a%i === 0 && b%i === 0){
         a = a/i;
         b = b/i;
         k ++;
       }
     }
-    if(k == 0) return false;
+    if(k === 0) return false;
     else {
       let out = new Fraction(a,b,0,this.sign);
       out.sign = this.sign;
@@ -57,8 +57,8 @@ class Fraction {
    */
   isolateWhole(){
     if(this.num < this.denom) return this;
-    var whole = Math.floor(this.num / this.denom) + this.whole;
-    var num = this.num % this.denom;
+    let whole = Math.floor(this.num / this.denom) + this.whole;
+    let num = this.num % this.denom;
     return new Fraction(num,this.denom,whole,this.sign)
   }
 
@@ -67,7 +67,7 @@ class Fraction {
    * @returns {Fraction}
    */
   integrWhole() {
-    var num = this.whole * this.denom + this.num;
+    let num = this.whole * this.denom + this.num;
     return new Fraction(num, this.denom, 0,this.sign);
   }
 
@@ -78,21 +78,21 @@ class Fraction {
    * @returns {Fraction} Вывод результата
    */
   signify(local){
-    var out;
-    var indicator = 1;
-    if(this.num != 0 && this.num != undefined)
+    let out;
+    let indicator = 1;
+    if(this.num !== 0 && this.num !== undefined)
       indicator *= this.num;
-    if(this.denom != 0 && this.denom != undefined)
+    if(this.denom !== 0 && this.denom !== undefined)
       indicator *= this.denom;
-    if(this.whole < 0 && this.whole != undefined) {
+    if(this.whole < 0 && this.whole !== undefined) {
       indicator = -1;
     }
 
     if(indicator >= 0)
       return this;
-    var num = this.num;
-    var denom = this.denom;
-    var whole = this.whole;
+    let num = this.num;
+    let denom = this.denom;
+    let whole = this.whole;
     if(num < 0) num = num * -1;
     if(denom < 0) denom = denom * -1;
     if(whole < 0) whole = whole * -1;
@@ -102,10 +102,10 @@ class Fraction {
       this.denom = denom;
       this.whole = whole;
       this.sign = true;
-      return;
+      return this;
     }
 
-    out = new Fraction(num, denom, whole);
+    out = new Fraction(num, denom, whole, true);
     out.sign = true;
     return out;
   }
@@ -116,41 +116,49 @@ class Fraction {
    * @returns {boolean}
    */
   equal(testable){
-    if(
-        this.num == testable.num
-        &&
-      (  this.denom == testable.denom ||
-        (this.denom == 0 && testable.denom == undefined) ||
-        (this.denom == undefined && testable.denom == 0)
+    return this.num === testable.num
+      &&
+      (this.denom === testable.denom ||
+        (this.denom === 0 && testable.denom === undefined) ||
+        (this.denom === undefined && testable.denom === 0)
       ) &&
-      (  this.whole == testable.whole ||
-        (this.whole == 0 && testable.whole == undefined) ||
-        (this.whole == undefined && testable.whole == 0)
+      (this.whole === testable.whole ||
+        (this.whole === 0 && testable.whole === undefined) ||
+        (this.whole === undefined && testable.whole === 0)
       ) &&
-      (  this.sign == testable.sign ||
-        (this.sign == false && testable.sign == undefined) ||
-        (this.sign == undefined && testable.sign == false)
+      (this.sign === testable.sign ||
+        (this.sign === false && testable.sign === undefined) ||
+        (this.sign === undefined && testable.sign === false)
       ) ||
       (
         (
-          (this.num == 0 && testable.num == undefined) ||
-          (this.num == undefined && testable.num == 0)
+          (this.num === 0 && testable.num === undefined) ||
+          (this.num === undefined && testable.num === 0)
         ) &&
         (
-          this.sign == testable.sign ||
-          (this.sign == false && testable.sign == undefined) ||
-          (this.sign == undefined && testable.sign == false)
+          this.sign === testable.sign ||
+          (this.sign === false && testable.sign === undefined) ||
+          (this.sign === undefined && testable.sign === false)
         ) &&
         (
-          this.whole == testable.whole ||
-          (this.whole == 0 && testable.whole == undefined) ||
-          (this.whole == undefined && testable.whole == 0)
+          this.whole === testable.whole ||
+          (this.whole === 0 && testable.whole === undefined) ||
+          (this.whole === undefined && testable.whole === 0)
         )
-      )
-    ){ alert("Ok");
-      return true;}
-    else
-      return false;
+      ) ||
+      (
+        this.denom === 1 && template.denom === 1 &&
+        (
+          this.sign === testable.sign ||
+          (this.sign === false && testable.sign === undefined) ||
+          (this.sign === undefined && testable.sign === false)
+        ) &&
+        (
+          this.whole === testable.whole ||
+          (this.whole === 0 && testable.whole === undefined) ||
+          (this.whole === undefined && testable.whole === 0)
+        )
+      );
   }
 
   /**
@@ -159,8 +167,8 @@ class Fraction {
    * @returns {Fraction}
    */
   static generate(config){
-    var num = 0, denom = 0, whole = 0 ;
-    while(denom == 0) {
+    let num = 0, denom = 0, whole = 0 ;
+    while(denom === 0) {
       num = getIntRandom(config.num.min, config.num.max);
       denom = getIntRandom(config.denom.min, config.denom.max);
       whole = getIntRandom(config.whole.min, config.whole.max);
@@ -170,8 +178,8 @@ class Fraction {
       num = num * (coef * x);
       denom = denom * (coef * y);
     }
-    return new Fraction(num,denom,whole)
+    return new Fraction(num,denom,whole,false)
   }
 }
-
+//module.exports = Fraction;
 export default Fraction

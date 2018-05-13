@@ -12,44 +12,49 @@
   export default {
     name:"ReduceSimple",
     props:["params"],
-    data: function(){
-      var answer = new Fraction();
+    data(){
+      let answer = new Fraction();
       answer.sign = false;
       return {
         question: new Fraction(1,5,0,false),
         answer : answer,
-        right:{}
+        right: new Fraction(0,0,0,false)
       }
     },
-    created:function(){
+    created(){
       this.generate();
     },
     methods:{
       //Сброс вводимого ответа
-      reset:function(){
-        var answer = new Fraction();
+      reset(){
+        let answer = new Fraction();
         answer.sign = false;
         this.answer = answer;
       },
 
       //Проверка правильности ответа и передача наверх результата
-      submit:function(){
-        var answer = fracKatexFmt(this.question) + "="
+      submit(){
+        let answer = fracKatexFmt(this.question) + "="
           + fracKatexFmt(this.answer);
-        var right = fracKatexFmt(this.question) + "="
+        let right = fracKatexFmt(this.question) + "="
           + fracKatexFmt(this.right);
-        var isRight = this.answer.equal(this.right);
+        let isRight = this.answer.equal(this.right);
         return {
           isRight:isRight,
           answer:answer,
           right:right
         }
       },
-      generate:function(){
+      generate(){
         //Генерация числа question по данным params
         this.question = Fraction.generate(this.params.fraction);
         //Генерация правильного ответа right
-        this.right = this.question.reduce().isolateWhole()
+        let right = this.question.reduce();
+        if(!right){
+          this.generate();
+          return
+        }
+        this.right = right.isolateWhole()
       }
     }
   }

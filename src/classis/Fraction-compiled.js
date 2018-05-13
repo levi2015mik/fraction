@@ -19,10 +19,10 @@ var Fraction = function () {
   function Fraction(num, denom, whole, sign) {
     _classCallCheck(this, Fraction);
 
-    if (typeof num != "undefined") this.num = num;
-    if (typeof denom != "undefined") this.denom = denom;
-    if (typeof whole != "undefined") this.whole = whole;
-    if (typeof sign != "undefined") this.sign = sign;
+    if (typeof num !== "undefined") this.num = num;
+    if (typeof denom !== "undefined") this.denom = denom;
+    if (typeof whole !== "undefined") this.whole = whole;
+    if (typeof sign !== "undefined") this.sign = sign;
     this.signify(true);
   }
 
@@ -41,13 +41,13 @@ var Fraction = function () {
       var b = self.denom;
       var k = 0;
       for (var i = 2; i < 999; i++) {
-        if (a % i == 0 && b % i == 0) {
+        if (a % i === 0 && b % i === 0) {
           a = a / i;
           b = b / i;
           k++;
         }
       }
-      if (k == 0) return false;else {
+      if (k === 0) return false;else {
         var out = new Fraction(a, b, 0, this.sign);
         out.sign = this.sign;
         return out;
@@ -90,11 +90,11 @@ var Fraction = function () {
   }, {
     key: "signify",
     value: function signify(local) {
-      var out;
+      var out = void 0;
       var indicator = 1;
-      if (this.num != 0 && this.num != undefined) indicator *= this.num;
-      if (this.denom != 0 && this.denom != undefined) indicator *= this.denom;
-      if (this.whole < 0 && this.whole != undefined) {
+      if (this.num !== 0 && this.num !== undefined) indicator *= this.num;
+      if (this.denom !== 0 && this.denom !== undefined) indicator *= this.denom;
+      if (this.whole < 0 && this.whole !== undefined) {
         indicator = -1;
       }
 
@@ -111,10 +111,10 @@ var Fraction = function () {
         this.denom = denom;
         this.whole = whole;
         this.sign = true;
-        return;
+        return this;
       }
 
-      out = new Fraction(num, denom, whole);
+      out = new Fraction(num, denom, whole, true);
       out.sign = true;
       return out;
     }
@@ -128,10 +128,7 @@ var Fraction = function () {
   }, {
     key: "equal",
     value: function equal(testable) {
-      if (this.num == testable.num && (this.denom == testable.denom || this.denom == 0 && testable.denom == undefined || this.denom == undefined && testable.denom == 0) && (this.whole == testable.whole || this.whole == 0 && testable.whole == undefined || this.whole == undefined && testable.whole == 0) && (this.sign == testable.sign || this.sign == false && testable.sign == undefined || this.sign == undefined && testable.sign == false) || (this.num == 0 && testable.num == undefined || this.num == undefined && testable.num == 0) && (this.sign == testable.sign || this.sign == false && testable.sign == undefined || this.sign == undefined && testable.sign == false) && (this.whole == testable.whole || this.whole == 0 && testable.whole == undefined || this.whole == undefined && testable.whole == 0)) {
-        alert("Ok");
-        return true;
-      } else return false;
+      return this.num === testable.num && (this.denom === testable.denom || this.denom === 0 && testable.denom === undefined || this.denom === undefined && testable.denom === 0) && (this.whole === testable.whole || this.whole === 0 && testable.whole === undefined || this.whole === undefined && testable.whole === 0) && (this.sign === testable.sign || this.sign === false && testable.sign === undefined || this.sign === undefined && testable.sign === false) || (this.num === 0 && testable.num === undefined || this.num === undefined && testable.num === 0) && (this.sign === testable.sign || this.sign === false && testable.sign === undefined || this.sign === undefined && testable.sign === false) && (this.whole === testable.whole || this.whole === 0 && testable.whole === undefined || this.whole === undefined && testable.whole === 0) || this.denom === 1 && template.denom === 1 && (this.sign === testable.sign || this.sign === false && testable.sign === undefined || this.sign === undefined && testable.sign === false) && (this.whole === testable.whole || this.whole === 0 && testable.whole === undefined || this.whole === undefined && testable.whole === 0);
     }
 
     /**
@@ -146,7 +143,7 @@ var Fraction = function () {
       var num = 0,
           denom = 0,
           whole = 0;
-      while (denom == 0) {
+      while (denom === 0) {
         num = getIntRandom(config.num.min, config.num.max);
         denom = getIntRandom(config.denom.min, config.denom.max);
         whole = getIntRandom(config.whole.min, config.whole.max);
@@ -156,12 +153,14 @@ var Fraction = function () {
         num = num * (coef * x);
         denom = denom * (coef * y);
       }
-      return new Fraction(num, denom, whole);
+      return new Fraction(num, denom, whole, false);
     }
   }]);
 
   return Fraction;
 }();
+//module.exports = Fraction;
+
 
 export default Fraction;
 

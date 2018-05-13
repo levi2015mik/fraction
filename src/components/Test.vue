@@ -15,6 +15,7 @@
       -->
     <div id="resulr-alert" v-show="result" :class="{right:resultBody.isRight}">
       <div ref="answer" style="font-size: 1.5em"></div>
+      Правильный ответ:
       <div ref="right" style="font-size: 1.5em"></div>
       <button @click="renew()">Попробовать снова</button>
       <button @click="nextExerc()">Далее</button>
@@ -32,7 +33,7 @@
   import ReduceSimple from "./exercises/ReduceSimple.vue"
   export default {
     name: "Test",
-    data: function(){
+    data(){
       return {
         params:{
           // Набор параметров теста
@@ -40,12 +41,12 @@
           component:"ReduceSimple",
           showRight:true,
           fraction:{
-            num:   {min:1, max:9},
-            denom: {min:1, max:9},
+            num:   {min:1,  max:9},
+            denom: {min:1,  max:2},
             whole: {min:-9, max:9},
-            coef:  {min:1, max:9},
-            x:     {min:0, max:5},
-            y:     {min:0, max:9}
+            coef:  {min:1,  max:2},
+            x:     {min:0,  max:5},
+            y:     {min:0,  max:9}
           }
         },
         id:this.$route.params.id,
@@ -53,42 +54,42 @@
         resultBody:{}
       }
     },
-    created:function(){
+    created(){
     },
     methods:{
       /**
        * Проверка результата, вывод сообщения о результате, сохранение статистики через vuex
        */
-      submit:function(){
+      submit(){
         let result = this.$refs.exercise.submit();
-        this.resultBody = result
+        this.resultBody = result;
         this.showResult(result);
         //TODO Сохранение result
       },
 
       //Сброс вводимого ответа
-      reset:function(){
+      reset(){
         this.$refs.exercise.reset(); 
       },
 
       /**
        * Вывод сообщения о правильном ответе или ошибке
        */
-      showResult:function(result){
+      showResult(result){
         this.result = true;
-        var answer =this.$refs.answer;
-        var right =this.$refs.right;
+        let answer = this.$refs.answer;
+        let right =this.$refs.right;
         katex.render(result.answer, answer,{displayMode: true});
         if(this.params.showRight)
           katex.render(result.right, right,{displayMode: true});
       },
 
       // Попытка заново решить предыдущее задание
-      renew:function(){
+      renew(){
         this.result = false;
         this.$refs.exercise.reset()
       },
-      nextExerc:function(){
+      nextExerc(){
         this.result = false;
         this.$refs.exercise.reset();
         this.$refs.exercise.generate();
@@ -98,4 +99,15 @@
     {"ReduceSimple":ReduceSimple}
   }
 </script>
-<style></style>
+<style>
+  #resulr-alert{
+    margin: 0 1em 1em;
+    padding: 0 1em 1em;
+    border: solid 3px #CCCCCC;
+    background-color: #AA3333;
+    color: #FFFFFF;
+  }
+  #resulr-alert.right{
+    background-color: #006600;
+  }
+</style>

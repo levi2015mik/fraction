@@ -31,7 +31,9 @@
         let val = Number(event.target.value);
         if((field == "whole" && val < 0 )|| event.target.value == "-")
           this.value.sign = true;
-        this.value[field] = val;
+        if((field == "whole" && val >= 0 )|| event.target.value == "")
+          this.value.sign = false;
+          this.value[field] = val;
         this.$emit("input", new Fraction(
           this.value.num,
           this.value.denom,
