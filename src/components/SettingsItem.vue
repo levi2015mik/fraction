@@ -8,38 +8,39 @@
           :value="val"
           :name="key"
           :key="index"
+          ref="settingsItems"
       />
     </ul>
   </div>
 
       <input type="text"
              v-else-if="textType"
-             v-model="value"
+             v-model.lazy="value"
              :id="name"
              title="1234"
       />
       <input type="checkbox"
             v-else-if="checkboxType"
-            v-model="value"
+            v-model.lazy="value"
             :id="name"
       />
       <select
             v-else-if="selectType"
-            v-model="value"
+            v-model.lazy="value"
             :id="name">
         <option v-for="val in options">{{val}}</option>
       </select>
       <span v-else-if="twonumsType">
         <input type="number"
                size="1"
-               v-model.number="value.min"
+               v-model.number.lazy="value.min"
                :id="name+'min'"
         />
         <label :for="name+'min'">минимум</label>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <input type="number"
                size="1"
-               v-model.number="value.max"
+               v-model.number.lazy="value.max"
                :id="name+'max'"
         />
         <label :for="name+'max'">максимум</label>
