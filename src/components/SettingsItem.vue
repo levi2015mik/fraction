@@ -2,6 +2,7 @@
 <li>
   <div v-if="iterable">
     {{localeName}}
+    <DescriptViewer v-if="iterable"><span v-html="description"></span></DescriptViewer>
     <ul>
       <SettingsItem
           v-for="(val, key, index) in value"
@@ -48,7 +49,9 @@
 
   <label
     v-if="!iterable"
+    class="prnm"
     :for="name">{{localeName}}</label>
+  <DescriptViewer v-if="helpable"><span v-html="description"></span></DescriptViewer>
 
 </li>
 </template>
@@ -56,6 +59,7 @@
 <script>
     import DICTIONARY from "../dictionary"  // Словарь, содержащий сведенья о всех пунктах настроек
                                             // и перечень вариантов выбора -- Плохое решение
+    import DescriptViewer from "./DescriptViewer"
 
     export default {
         name: "SettingsItem",
@@ -68,6 +72,7 @@
             }
         },
         created(){
+            if(this.name === "_id") return;
             this.localeName = DICTIONARY[this.name].name;
             this.description = DICTIONARY[this.name].description;
             if(DICTIONARY[this.name].options !== undefined)
@@ -79,7 +84,9 @@
                   typeof this.value.min  === "undefined" &&
                   typeof this.value.max  === "undefined"
             },
-
+            helpable(){
+              return !this.iterable && this.name !== "_id"
+            },
             textType(){
               return typeof this.value === "string" && this.options.length === 0;
             },
@@ -93,12 +100,29 @@
               return typeof this.value.min  === "number" &&
                      typeof this.value.max  === "number"
             }
+        },
+        components:{
+            DescriptViewer
         }
     }
 </script>
 
 <style scoped>
+li{
+  margin: 7px;
+  list-style: none;
+}
+input{
+  padding-left: 0.2em;
+  font-size: 1em;
+}
 input[type="number"] {
-  width: 4em;
+  width: 3em;
+}
+select, option {
+  font-size: 1em;
+}
+label.prnm{
+  margin-left: 0.3em;
 }
 </style>

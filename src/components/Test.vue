@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>Test</h1>
-    <component v-once :is="params.component" :params="params" ref="exercise"/>
+    <!--Компонент задан статически, а не через component is
+    Это дает возможность работать с меню, но убирает компоненты
+    -->
+    <ReduceSimple  :params="params" ref="exercise"/>
     <button @click="reset">Сброс</button>
     <button @click="submit">Готово</button>
 
@@ -29,32 +32,39 @@
    * будет динамически подключаться шаблон задания из папки ./exercises
    */
   // Перечень всех доступных компонентов-шаблонов заданий
-  import Fraction from "../classis/Fraction"
   import ReduceSimple from "./exercises/ReduceSimple.vue"
+  import store from "@/store"
   export default {
     name: "Test",
     data(){
       return {
-        params:{
-          // Набор параметров теста
-          //TODO Добавлять через vuex по идентификатору
-          component:"ReduceSimple",
-          showRight:true,
-          fraction:{
-            num:   {min:1,  max:9},
-            denom: {min:1,  max:2},
-            whole: {min:-9, max:9},
-            coef:  {min:1,  max:2},
-            x:     {min:0,  max:5},
-            y:     {min:0,  max:9}
-          }
-        },
+        // params:{
+        //   // Набор параметров теста
+        //   //TODO Добавлять через vuex по идентификатору
+        //   component:"ReduceSimple",
+        //   showRight:true,
+        //   fraction:{
+        //     num:   {min:1,  max:9},
+        //     denom: {min:1,  max:2},
+        //     whole: {min:-9, max:9},
+        //     coef:  {min:1,  max:2},
+        //     x:     {min:0,  max:5},
+        //     y:     {min:0,  max:9}
+        //   }
+        // },
         id:this.$route.params.id,
         result:false,
         resultBody:{}
       }
     },
     created(){
+    },
+    computed:{
+      params(){
+         return store.state.exercises.find(el =>
+           el._id == this.id
+         )
+      }
     },
     methods:{
       /**

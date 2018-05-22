@@ -2,23 +2,6 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/auto-render-compiled-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/auto-render-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/auto-render.min-compiled-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/auto-render.min-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/copy-tex-compiled-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/copy-tex-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/copy-tex.min-compiled-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/copy-tex.min-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/mathtex-script-type-compiled-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/mathtex-script-type-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/mathtex-script-type.min-compiled-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/contrib/mathtex-script-type.min-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/js/app.bc59439980e78bdcca41-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/js/vendor.546a782c4b2b0a8ccbd5-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/katex.min-compiled-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/static/katex.min-compiled.js" />
         <item url="file://$PROJECT_DIR$/node_modules/axios/dist/axios-compiled.js" />
         <item url="file://$PROJECT_DIR$/node_modules/axios/dist/axios.min-compiled.js" />
         <item url="file://$PROJECT_DIR$/node_modules/axios/index-compiled.js" />
@@ -55,6 +38,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/vuex/dist/vuex.min-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/classis/Fraction-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/functions-compiled.js" />
+        <item url="file://$PROJECT_DIR$/src/libs/connect-compiled.js" />
+        <item url="file://$PROJECT_DIR$/src/libs/lsgroups-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/main-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/router/index-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/store/index-compiled.js" />
@@ -103,6 +88,9 @@
       <root url="file://$PROJECT_DIR$/node_modules/katex/src/functions/accentunder-compiled.js" />
       <root url="file://$PROJECT_DIR$/node_modules/vue-katex/index-compiled.js" />
       <root url="file://$PROJECT_DIR$/node_modules/katex/src/functions/mathchoice-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/js/app.bc59439980e78bdcca41-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/js/vendor.546a782c4b2b0a8ccbd5-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/classis/connect-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/contrib/auto-render-compiled-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/contrib/auto-render-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/contrib/auto-render.min-compiled-compiled.js" />
@@ -115,11 +103,29 @@
       <root url="file://$PROJECT_DIR$/dist/static/contrib/mathtex-script-type-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/contrib/mathtex-script-type.min-compiled-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/contrib/mathtex-script-type.min-compiled.js" />
-      <root url="file://$PROJECT_DIR$/dist/static/js/app.bc59439980e78bdcca41-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/js/app.7137f7aa57dda0b9156c-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8-compiled.js" />
-      <root url="file://$PROJECT_DIR$/dist/static/js/vendor.546a782c4b2b0a8ccbd5-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/js/vendor.8baa33d8297b8dad0ad5-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/katex.min-compiled-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/static/katex.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/auto-render-compiled-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/auto-render-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/auto-render-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/auto-render.min-compiled-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/auto-render.min-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/auto-render.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/copy-tex-compiled-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/copy-tex-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/copy-tex-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/copy-tex.min-compiled-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/copy-tex.min-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/copy-tex.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/mathtex-script-type-compiled-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/mathtex-script-type-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/mathtex-script-type-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/mathtex-script-type.min-compiled-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/mathtex-script-type.min-compiled-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/--contrib/mathtex-script-type.min-compiled.js" />
       <root url="file://$PROJECT_DIR$/node_modules/axios/dist/axios-compiled.js" />
       <root url="file://$PROJECT_DIR$/node_modules/axios/dist/axios.min-compiled.js" />
       <root url="file://$PROJECT_DIR$/node_modules/axios/index-compiled.js" />
@@ -156,6 +162,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/vuex/dist/vuex.min-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/classis/Fraction-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/functions-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/libs/connect-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/libs/lsgroups-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/main-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/router/index-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/store/index-compiled.js" />

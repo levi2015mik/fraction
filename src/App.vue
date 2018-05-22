@@ -2,25 +2,27 @@
   <div id="app">
     <router-link to="/">Главное меню</router-link>
     <router-link to="/exerclist">Список заданий</router-link>
-    <router-link to="/test/7960">Задание</router-link>
-    <router-link to="/settings/7960">Настройки</router-link>
+    <router-link to="/test/2424267">Задание</router-link>
+    <router-link to="/settings/2424267">Настройки</router-link>
     <router-view/>
   </div>
 </template>
 
 <script>
+import store from "@/store"
 export default {
   name: 'App',
+  async created(){
+    let res = await store.dispatch("loadExercises",{local:true});
+    // if(res) alert("loaded");
+    // else {}
+  }
 }
 </script>
 
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>

@@ -15,6 +15,7 @@
 
 <script>
     import SettingsItem from "./SettingsItem"
+    import store from "@/store"
     export default {
         name: "Settings",
         data(){
@@ -29,19 +30,22 @@
           // Загрузка из store по идентификатору
             load() {
                 //TODO Загрузка из store по номеру
-                this.params = {
-                    name:"",
-                    component: "ReduceSimple",
-                    showRight: true,
-                    fraction: {
-                        num: {min: 1, max: 9},
-                        denom: {min: 1, max: 2},
-                        whole: {min: -9, max: 9},
-                        coef: {min: 1, max: 2},
-                        x: {min: 0, max: 5},
-                        y: {min: 0, max: 9}
-                    }
-                }
+                let id = this.$route.params.id;
+                this.params = store.state.exercises.find(el=>el._id == id);
+                // this.params = {
+                //     _id:2424242,
+                //     name:"",
+                //     component: "ReduceSimple",
+                //     showRight: true,
+                //     fraction: {
+                //         num: {min: 1, max: 9},
+                //         denom: {min: 1, max: 2},
+                //         whole: {min: -9, max: 9},
+                //         coef: {min: 1, max: 2},
+                //         x: {min: 0, max: 5},
+                //         y: {min: 0, max: 9}
+                //     }
+                // }
             },
             save(){
               // Сбор и сохранение настроек не рекурсивно, а происходит в циклах.
@@ -72,7 +76,9 @@
               }
 
               // Заглушка. Эти данные должны сохраняться в объект store
-              console.log(JSON.stringify(settings,2))
+              console.log(JSON.stringify(settings,2));
+              store.dispatch("updateExercise",settings);
+              this.$router.push("/exercList")
             }
         },
       components:{
@@ -82,5 +88,16 @@
 </script>
 
 <style scoped>
-
+li{
+  margin: 7px;
+  list-style: none;
+  font-size: 1.2em;
+}
+input{
+  padding-left: 0.2em;
+  font-size: 1em;
+}
+select, option {
+  font-size: 1em;
+}
 </style>

@@ -10,26 +10,26 @@
   },
   "showRight" :{
       "name":"показывать правильные ответы",
-      "description":""},
+      "description":"Приложение может показывать правильные ответы, после того как пользователь ответит"},
   "fraction"  :{
       "name":"Параметры дроби",
-      "description":""},
+      "description":"Переменные, управляющие генерацией дробей. Дробь генерируется по формуле<br/>(num * c * x)/(denom * c * y)<br/> где num c x denom c y - случайные числа"},
   "num"  :{
     "name":"числитель",
-    "description":""},
+    "description":"num в формуле"},
   "denom"  :{
     "name":"знаменатель",
-    "description":""},
+    "description":"denom в формуле"},
   "whole"  :{
     "name":"целая часть",
-    "description":""},
+    "description":"целая часть"},
   "coef"  :{
     "name":"коэффициент умножения",
-    "description":""},
+    "description":"coef в формуле"},
   "x"  :{
     "name":"приращение числителя",
-    "description":""},
+    "description":"x в формуле"},
   "y"  :{
     "name":"приращение знаменателя",
-    "description":""}
+    "description":"y в формуле"}
 }

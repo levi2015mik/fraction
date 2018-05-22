@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <FractionOutput v-for="frc in fr" key="frc" :fraction="frc"/>
+    <FractionOutput v-for="(frc, el) in fr" :key="el" :fraction="frc"/>
     <div>
       <FractionInput v-model="binded"/>
       <FractionSign>=</FractionSign>

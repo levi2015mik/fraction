@@ -22,7 +22,9 @@
       }
     },
     created(){
-      this.generate();
+      // адержка дает время загрузки для store
+      setTimeout(this.generate(),1000);
+      // this.generate();
     },
     methods:{
       //Сброс вводимого ответа

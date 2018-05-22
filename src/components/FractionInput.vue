@@ -20,18 +20,18 @@
     name: "FractionInput",
     props:["value"],
     computed:{
-      whole:function(){
+      whole(){
         let whole = Number(this.value.whole);
         if(isNaN(whole) ) whole = "";
         return ((this.value.sign)? '-' : '') + whole
       }
     },
     methods:{
-      input: function(event,field){
+      input(event,field){
         let val = Number(event.target.value);
-        if((field == "whole" && val < 0 )|| event.target.value == "-")
+        if((field === "whole" && val < 0 )|| event.target.value === "-")
           this.value.sign = true;
-        if((field == "whole" && val >= 0 )|| event.target.value == "")
+        if((field === "whole" && val >= 0 )|| event.target.value === "")
           this.value.sign = false;
           this.value[field] = val;
         this.$emit("input", new Fraction(
@@ -42,7 +42,7 @@
         ))
       }
     },
-    created:function(){
+    created(){
     }
   }
 </script>
