@@ -32,8 +32,8 @@ span#win{
   position: absolute;
   width: 16em;
   margin-left: 1em;
-  border: 1px solid #000000;
+  border: 1px solid #ddddbb;
   padding: 3px 3px 3px 5px;
-  background: #ffffff;
+  background: #ffffDD;
 }
 </style>

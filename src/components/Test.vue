@@ -4,7 +4,7 @@
     <!--Компонент задан статически, а не через component is
     Это дает возможность работать с меню, но убирает компоненты
     -->
-    <ReduceSimple  :params="params" ref="exercise"/>
+    <component :is="exercComponent"  :params="params" ref="exercise"/>
     <button @click="reset">Сброс</button>
     <button @click="submit">Готово</button>
 
@@ -18,7 +18,9 @@
       -->
     <div id="resulr-alert" v-show="result" :class="{right:resultBody.isRight}">
       <div ref="answer" style="font-size: 1.5em"></div>
-      Правильный ответ:
+
+      <!--<span v-if="showRight">Правильный ответ:</span>-->
+
       <div ref="right" style="font-size: 1.5em"></div>
       <button @click="renew()">Попробовать снова</button>
       <button @click="nextExerc()">Далее</button>
@@ -33,7 +35,9 @@
    */
   // Перечень всех доступных компонентов-шаблонов заданий
   import ReduceSimple from "./exercises/ReduceSimple.vue"
+  import Stub from  "./exercises/stub"
   import store from "@/store"
+
   export default {
     name: "Test",
     data(){
@@ -54,17 +58,27 @@
         // },
         id:this.$route.params.id,
         result:false,
-        resultBody:{}
+        resultBody:{},
+        exercComponent:Stub
       }
     },
     created(){
+      setTimeout(()=>{
+        this.exercComponent = this.params.component;
+      },1000);
     },
     computed:{
       params(){
          return store.state.exercises.find(el =>
            el._id == this.id
          )
-      }
+      },
+      // showRight() {
+      //   if(typeof this.params === "undefined")
+      //     return false;
+      //   else
+      //     return params.showRight
+      // }
     },
     methods:{
       /**

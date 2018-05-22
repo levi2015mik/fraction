@@ -6,7 +6,7 @@
   </div>
 </template>
 <script type="application/javascript">
-  import Fraction from "../../classis/Fraction.js"
+  import Fraction from "../../classis/Fraction"
   import {fracKatexFmt} from "../../functions"
 
   export default {
@@ -23,7 +23,7 @@
     },
     created(){
       // адержка дает время загрузки для store
-      setTimeout(this.generate(),1000);
+      setTimeout(this.generate,200);
       // this.generate();
     },
     methods:{
