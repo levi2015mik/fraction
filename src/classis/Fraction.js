@@ -41,6 +41,7 @@ class Fraction {
         a = a/i;
         b = b/i;
         k ++;
+        i = 1;
       }
     }
     if(k === 0) return false;
@@ -168,17 +169,58 @@ class Fraction {
    */
   static generate(config){
     let num = 0, denom = 0, whole = 0 ;
-    while(denom === 0) {
-      num = getIntRandom(config.num.min, config.num.max);
-      denom = getIntRandom(config.denom.min, config.denom.max);
-      whole = getIntRandom(config.whole.min, config.whole.max);
+
+    let multiple = ()=>{
       let coef = getIntRandom(config.coef.min, config.coef.max);
       let x = getIntRandom(config.x.min, config.x.max);
       let y = getIntRandom(config.y.min, config.y.max);
       num = num * (coef * x);
       denom = denom * (coef * y);
+    };
+    let generate = ()=>{
+      num = getIntRandom(config.num.min, config.num.max);
+      denom = getIntRandom(config.denom.min, config.denom.max);
+      whole = getIntRandom(config.whole.min, config.whole.max);
+
+      let iterate = getIntRandom(config.iterate.min, config.iterate.max);
+      if(iterate < 1) iterate = 1;
+      while(iterate) {
+        if(config.onlyRight){
+          do multiple(); while (num > denom)
+        }
+        else
+          multiple();
+        iterate --
+      }
+    };
+
+    if(config.onlyFrac){
+      while (num === denom) {
+        if (config.notZero) {
+          while (denom === 0 || num === 0)
+            generate();
+        }
+        else
+          while (denom === 0)
+            generate();
+      }
     }
-    return new Fraction(num,denom,whole,false)
+
+    else {
+      if (config.notZero)
+        while (
+          denom === 0 || num === 0)
+          generate();
+      else
+        while (
+          denom === 0)
+          generate();
+    }
+
+
+    return new Fraction(num,denom,whole,false);
+
+
   }
 }
 //module.exports = Fraction;

@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <h1>Test</h1>
+  <div id="exercise">
     <!--Компонент задан статически, а не через component is
     Это дает возможность работать с меню, но убирает компоненты
     -->
     <component :is="exercComponent"  :params="params" ref="exercise"/>
-    <button @click="reset">Сброс</button>
-    <button @click="submit">Готово</button>
+
+    <div id="btns">
+      <button @click="reset">Сброс</button>
+      <button @click="submit">Готово</button>
+    </div>
+
 
     <!-- Сообщение, выдающее ответ, указание, правильный ли он
       -- и при соответствующем условии, правильный варивнт ответа
@@ -14,7 +17,6 @@
       -- DOM через $refs при помощи библиотеки katex.
       -- В элемент DOM вставляются строки LaTeX,
       -- katex.render("-1\\frac{2}{3}", res,{displayMode: true})
-      -- TODO Изменить тег div на dialog modal
       -->
     <div id="resulr-alert" v-show="result" :class="{right:resultBody.isRight}">
       <div ref="answer" style="font-size: 1.5em"></div>
@@ -42,23 +44,9 @@
     name: "Test",
     data(){
       return {
-        // params:{
-        //   // Набор параметров теста
-        //   //TODO Добавлять через vuex по идентификатору
-        //   component:"ReduceSimple",
-        //   showRight:true,
-        //   fraction:{
-        //     num:   {min:1,  max:9},
-        //     denom: {min:1,  max:2},
-        //     whole: {min:-9, max:9},
-        //     coef:  {min:1,  max:2},
-        //     x:     {min:0,  max:5},
-        //     y:     {min:0,  max:9}
-        //   }
-        // },
         id:this.$route.params.id,
         result:false,
-        resultBody:{},
+        resultBody:{},        // Данные об ответе. Они отправятся в статистику
         exercComponent:Stub
       }
     },
@@ -84,11 +72,12 @@
       /**
        * Проверка результата, вывод сообщения о результате, сохранение статистики через vuex
        */
-      submit(){
+      async submit(){
         let result = this.$refs.exercise.submit();
         this.resultBody = result;
         this.showResult(result);
-        //TODO Сохранение result
+        let saveStat = await store.dispatch("pushStatistic",this.resultBody);
+        if(!saveStat){} //Обработка отсутствия соединения
       },
 
       //Сброс вводимого ответа
@@ -124,6 +113,23 @@
   }
 </script>
 <style>
+  div #exercise{
+    margin: 2em;
+    border: solid 2px #efefef;
+    padding: 2em;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  #btns{
+    margin: 1em;
+  }
+
+  div #exercise button {
+    font-size: 1.2em;
+    margin-right: 1em;
+  }
+
   #resulr-alert{
     margin: 0 1em 1em;
     padding: 0 1em 1em;

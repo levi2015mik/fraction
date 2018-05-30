@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <router-link to="/">Главное меню</router-link>
-    <router-link to="/exerclist">Список заданий</router-link>
-    <router-link to="/test/2424267">Задание</router-link>
-    <router-link to="/settings/2424267">Настройки</router-link>
+    <nav>
+      <router-link to="/">Главное меню</router-link>
+      <router-link to="/statistic">Статистика</router-link>
+    </nav>
+
     <router-view/>
   </div>
 </template>
@@ -12,10 +13,15 @@
 import store from "@/store"
 export default {
   name: 'App',
+  /**
+   * Загрузка данных приложения: упражнения и статистика
+   * @returns {Promise<void>}
+   */
   async created(){
     let res = await store.dispatch("loadExercises",{local:true});
     // if(res) alert("loaded");
     // else {}
+    let stat = await store.dispatch("loadStatistic",{local:true});
   }
 }
 </script>
@@ -23,6 +29,23 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  margin-top: 60px;
+}
+html body{
+  background: #f5f5f5;
+}
+nav{
+  /*margin:0.6em;*/
+  margin-top: 2em;
+  margin-left: 4em;
+  font-size: 1.3em;
+}
+nav a{
+  padding-right: 0.5em;
+}
+a{
+  color: #00C;
+}
+a:hover{
+  color: #C00;
 }
 </style>

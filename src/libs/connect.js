@@ -8,9 +8,16 @@ import lsGroups from "./lsgroups"
  * Отсюда же происходит временное локальное сохранение
  * в localStorage для последующей передачи
  * TODO Заглушка для тестирования
+ * TODO Работа с сетью:
+ * - загрузка персональных заданий
+ * - Загрузка текстовых сообщений
+ * - сохранение статистики
+ * TODO Исправить ошибки по работе с localStorage
  */
 
 const LSNAME = "fracMenu";  // Название набора данных из lsGroups
+const STATISTIC = "stat";   // Название элемента из localStorage,
+                            // в котором хранится статистика
 
 let exercisesStub = [
   {
@@ -68,5 +75,18 @@ export default {
 
   },
 
-  loadStatistic(){}
+  async loadStatistic(){
+    let data = localStorage[STATISTIC];
+    if(data === undefined) return [];
+    return JSON.parse(data)
+  },
+
+  /**
+   * Отправка на сервер статистики или сохранение ее в localStorage
+   * @param el
+   * @param collection
+   */
+  async pushStatistic(el,collection){
+    localStorage[STATISTIC] = JSON.stringify(collection)
+  }
 }

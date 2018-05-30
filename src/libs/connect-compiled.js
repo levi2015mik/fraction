@@ -1,3 +1,4 @@
+import _JSON$stringify from "babel-runtime/core-js/json/stringify";
 import _regeneratorRuntime from "babel-runtime/regenerator";
 import _asyncToGenerator from "babel-runtime/helpers/asyncToGenerator";
 import axios from "axios";
@@ -10,9 +11,16 @@ import lsGroups from "./lsgroups";
  * Отсюда же происходит временное локальное сохранение
  * в localStorage для последующей передачи
  * TODO Заглушка для тестирования
+ * TODO Работа с сетью:
+ * - загрузка персональных заданий
+ * - Загрузка текстовых сообщений
+ * - сохранение статистики
+ * TODO Исправить ошибки по работе с localStorage
  */
 
 var LSNAME = "fracMenu"; // Название набора данных из lsGroups
+var STATISTIC = "stat"; // Название элемента из localStorage,
+// в котором хранится статистика
 
 var exercisesStub = [{
   _id: 2424242,
@@ -133,7 +141,60 @@ export default {
       }, _callee4, _this4);
     }))();
   },
-  loadStatistic: function loadStatistic() {}
+  loadStatistic: function loadStatistic() {
+    var _this5 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee5() {
+      var data;
+      return _regeneratorRuntime.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              data = localStorage[STATISTIC];
+
+              if (!(data === undefined)) {
+                _context5.next = 3;
+                break;
+              }
+
+              return _context5.abrupt("return", []);
+
+            case 3:
+              return _context5.abrupt("return", JSON.parse(data));
+
+            case 4:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, _this5);
+    }))();
+  },
+
+
+  /**
+   * Отправка на сервер статистики или сохранение ее в localStorage
+   * @param el
+   * @param collection
+   */
+  pushStatistic: function pushStatistic(el, collection) {
+    var _this6 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee6() {
+      return _regeneratorRuntime.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              localStorage[STATISTIC] = _JSON$stringify(collection);
+
+            case 1:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, _this6);
+    }))();
+  }
 };
 
 //# sourceMappingURL=connect-compiled.js.map

@@ -4,14 +4,15 @@ import HelloWorld from '@/components/HelloWorld';
 import Test from '@/components/Test';
 import Settings from '@/components/Settings';
 import ExercList from '@/components/ExercList';
+import Statistic from '@/components/Statistic';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [{
     path: '/',
-    name: 'HelloWorld',
-    component: HelloWorld
+    name: 'Упражнения',
+    component: ExercList
   }, {
     path: '/test/:id',
     name: 'Test',
@@ -24,6 +25,10 @@ export default new Router({
     path: '/exerclist',
     name: 'ExercList',
     component: ExercList
+  }, {
+    path: '/statistic',
+    name: 'Статистика',
+    component: Statistic
   }]
 });
 

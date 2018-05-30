@@ -109,7 +109,7 @@
 
 <style scoped>
 li{
-  margin: 7px;
+  margin: 0.4em;
   list-style: none;
 }
 input{

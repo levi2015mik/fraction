@@ -45,6 +45,7 @@ var Fraction = function () {
           a = a / i;
           b = b / i;
           k++;
+          i = 1;
         }
       }
       if (k === 0) return false;else {
@@ -143,16 +144,49 @@ var Fraction = function () {
       var num = 0,
           denom = 0,
           whole = 0;
-      while (denom === 0) {
-        num = getIntRandom(config.num.min, config.num.max);
-        denom = getIntRandom(config.denom.min, config.denom.max);
-        whole = getIntRandom(config.whole.min, config.whole.max);
+
+      var multiple = function multiple() {
         var coef = getIntRandom(config.coef.min, config.coef.max);
         var x = getIntRandom(config.x.min, config.x.max);
         var y = getIntRandom(config.y.min, config.y.max);
         num = num * (coef * x);
         denom = denom * (coef * y);
+      };
+      var generate = function generate() {
+        num = getIntRandom(config.num.min, config.num.max);
+        denom = getIntRandom(config.denom.min, config.denom.max);
+        whole = getIntRandom(config.whole.min, config.whole.max);
+
+        var iterate = getIntRandom(config.iterate.min, config.iterate.max);
+        if (iterate < 1) iterate = 1;
+        while (iterate) {
+          if (config.onlyRight) {
+            do {
+              multiple();
+            } while (num > denom);
+          } else multiple();
+          iterate--;
+        }
+      };
+
+      if (config.onlyFrac) {
+        while (num === denom) {
+          if (config.notZero) {
+            while (denom === 0 || num === 0) {
+              generate();
+            }
+          } else while (denom === 0) {
+            generate();
+          }
+        }
+      } else {
+        if (config.notZero) while (denom === 0 || num === 0) {
+          generate();
+        } else while (denom === 0) {
+          generate();
+        }
       }
+
       return new Fraction(num, denom, whole, false);
     }
   }]);

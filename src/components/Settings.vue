@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="settings">
       <ul>
         <SettingsItem
           v-for="(val, key, index) in params"
@@ -29,24 +29,11 @@
         methods: {
           // Загрузка из store по идентификатору
             load() {
-                //TODO Загрузка из store по номеру
                 let id = this.$route.params.id;
                 this.params = store.state.exercises.find(el=>el._id == id);
-                // this.params = {
-                //     _id:2424242,
-                //     name:"",
-                //     component: "ReduceSimple",
-                //     showRight: true,
-                //     fraction: {
-                //         num: {min: 1, max: 9},
-                //         denom: {min: 1, max: 2},
-                //         whole: {min: -9, max: 9},
-                //         coef: {min: 1, max: 2},
-                //         x: {min: 0, max: 5},
-                //         y: {min: 0, max: 9}
-                //     }
-                // }
+
             },
+
             save(){
               // Сбор и сохранение настроек не рекурсивно, а происходит в циклах.
               // Допускается два уровня вложенности, не больше.
@@ -88,9 +75,18 @@
 </script>
 
 <style scoped>
+#settings{
+    margin: 2em;
+    border: solid 2px #efefef;
+    padding: 2em;
+    background: #ffffff;
+}
 li{
   margin: 7px;
   list-style: none;
+  font-size: 1.2em;
+}
+button{
   font-size: 1.2em;
 }
 input{

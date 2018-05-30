@@ -44,7 +44,8 @@
         return {
           isRight:isRight,
           answer:answer,
-          right:right
+          right:right,
+          eid:this.params._id
         }
       },
       generate(){

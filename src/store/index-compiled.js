@@ -21,7 +21,9 @@ export default new Vuex.Store({
     test: true, // Данные для проверки
     exercises: [], // Список задангий
     statistic: [], // Статистика
-    loaded: false
+    loaded: false, // Была ли выполнена загрузка
+    loadedStat: false,
+    uid: 0 // Идентификатор пользователя 0 - локальный
   },
 
   mutations: {
@@ -63,7 +65,7 @@ export default new Vuex.Store({
      * @param state
      * @param payload
      */
-    addStatistic: function addStatistic(state, payload) {
+    pushStatistic: function pushStatistic(state, payload) {
       state.statistic.push(payload);
     },
 
@@ -74,6 +76,9 @@ export default new Vuex.Store({
      */
     dataLoaded: function dataLoaded(state) {
       state.loaded = true;
+    },
+    statLoaded: function statLoaded(state) {
+      state.loadedStat = true;
     }
   },
 
@@ -250,20 +255,63 @@ export default new Vuex.Store({
     /**
      * Загрузка статистики по условиям
      * @param commit
+     * @param state
      * @param params
      */
     loadStatistic: function loadStatistic(_ref5, params) {
-      var commit = _ref5.commit;
+      var _this4 = this;
+
+      var commit = _ref5.commit,
+          state = _ref5.state;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee4() {
+        var statistic;
+        return _regeneratorRuntime.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (!state.loadedStat) {
+                  _context4.next = 2;
+                  break;
+                }
+
+                return _context4.abrupt("return", false);
+
+              case 2:
+                _context4.next = 4;
+                return connect.loadStatistic(params);
+
+              case 4:
+                statistic = _context4.sent;
+
+                statistic.forEach(function (el) {
+                  commit("pushStatistic", el);
+                });
+                commit("statLoaded");
+
+              case 7:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, _this4);
+      }))();
     },
 
 
     /**
      * Добавление новой записи статистики
      * @param commit
+     * @param state
      * @param stat
      */
-    addStatistic: function addStatistic(_ref6, stat) {
-      var commit = _ref6.commit;
+    pushStatistic: function pushStatistic(_ref6, stat) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
+
+      stat.time = Date.now();
+      stat.uid = state.uid;
+      commit("pushStatistic", stat);
+      connect.pushStatistic(stat, state.statistic);
     }
   }
 });

@@ -19,7 +19,9 @@ export default new Vuex.Store({
     test:true,     // Данные для проверки
     exercises:[],  // Список задангий
     statistic:[],  // Статистика
-    loaded:false
+    loaded:false,  // Была ли выполнена загрузка
+    loadedStat:false,
+    uid:0          // Идентификатор пользователя 0 - локальный
   },
 
 
@@ -57,7 +59,7 @@ export default new Vuex.Store({
      * @param state
      * @param payload
      */
-    addStatistic(state,payload){
+    pushStatistic(state,payload){
       state.statistic.push(payload)
     },
 
@@ -67,6 +69,9 @@ export default new Vuex.Store({
      */
     dataLoaded(state){
       state.loaded = true
+    },
+    statLoaded(state){
+      state.loadedStat = true
     }
   },
 
@@ -152,15 +157,29 @@ export default new Vuex.Store({
     /**
      * Загрузка статистики по условиям
      * @param commit
+     * @param state
      * @param params
      */
-    loadStatistic({commit},params){},
+    async loadStatistic({commit, state},params){
+      if(state.loadedStat)return false;
+      let statistic = await connect.loadStatistic(params);
+      statistic.forEach(el=>{
+        commit("pushStatistic",el);
+      });
+      commit("statLoaded")
+    },
 
     /**
      * Добавление новой записи статистики
      * @param commit
+     * @param state
      * @param stat
      */
-    addStatistic({commit},stat){}
+    pushStatistic({commit,state},stat){
+      stat.time = Date.now();
+      stat.uid = state.uid;
+      commit("pushStatistic",stat);
+      connect.pushStatistic(stat,state.statistic);
+    }
   }
 })
