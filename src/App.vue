@@ -6,6 +6,10 @@
     </nav>
 
     <router-view/>
+    <footer>
+      version 0.0.2<br/>
+      &copy; Michael Levitsky
+    </footer>
   </div>
 </template>
 
@@ -47,5 +51,14 @@ a{
 }
 a:hover{
   color: #C00;
+}
+
+footer{
+  margin:1.67em;
+  padding:2em;
+  border: solid 2px #efefef;
+  background: #FFFFFF;
+  font-size: 1.2em;
+  line-height: 1.4em;
 }
 </style>

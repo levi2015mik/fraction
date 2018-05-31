@@ -2,31 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5dc2728-5c79-4258-ba83-e9d93f9254d6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Statistic.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classis/Fraction-compiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classis/Fraction-compiled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classis/Fraction-compiled.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/classis/Fraction-compiled.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classis/Fraction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classis/Fraction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ExercList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ExercList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SettingsItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Test.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/exercises/ReduceSimple.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/exercises/ReduceSimple.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/libs/connect-compiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/libs/connect-compiled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/libs/connect-compiled.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/libs/connect-compiled.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/libs/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/libs/connect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/libs/lsgroups.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/libs/lsgroups.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index-compiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index-compiled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index-compiled.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index-compiled.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index-compiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index-compiled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index-compiled.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index-compiled.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Statistic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Statistic.vue" afterDir="false" />
     </list>
     <ignored path="Fraction.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,11 +57,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Statistic.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ExercList.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ExercList.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fraction.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/classis/Fraction.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="223" column="9" lean-forward="true" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statistic.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Statistic.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="121" column="19" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
+            <state relative-caret-position="9548">
+              <caret line="435" column="19" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -140,16 +149,16 @@
         <option value="$PROJECT_DIR$/src/router/index.js" />
         <option value="$PROJECT_DIR$/src/functions.js" />
         <option value="$PROJECT_DIR$/src/dictionary.json" />
-        <option value="$PROJECT_DIR$/src/classis/Fraction.js" />
         <option value="$PROJECT_DIR$/src/store/index.js" />
-        <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/components/Test.vue" />
         <option value="$PROJECT_DIR$/src/components/SettingsItem.vue" />
         <option value="$PROJECT_DIR$/src/components/Settings.vue" />
-        <option value="$PROJECT_DIR$/src/components/ExercList.vue" />
         <option value="$PROJECT_DIR$/src/templates.json" />
         <option value="$PROJECT_DIR$/src/libs/connect.js" />
+        <option value="$PROJECT_DIR$/src/components/ExercList.vue" />
         <option value="$PROJECT_DIR$/src/components/Statistic.vue" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
+        <option value="$PROJECT_DIR$/src/classis/Fraction.js" />
       </list>
     </option>
   </component>
@@ -199,13 +208,7 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="Fraction" type="cbb8eebc:String" user="Fraction" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Fraction" type="cbb8eebc:String" user="Fraction" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="libs" type="cbb8eebc:String" user="libs" />
+              <item name="classis" type="cbb8eebc:String" user="classis" />
             </path>
           </expand>
           <select />
@@ -336,8 +339,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build" />
         <item itemvalue="Node.js.Fraction.js" />
         <item itemvalue="npm.start" />
       </list>
@@ -368,6 +371,10 @@
       <workItem from="1527507560068" duration="8738000" />
       <workItem from="1527581076655" duration="37516000" />
       <workItem from="1527662462464" duration="950000" />
+      <workItem from="1527693400737" duration="676000" />
+      <workItem from="1527708930206" duration="3887000" />
+      <workItem from="1527766693500" duration="2694000" />
+      <workItem from="1527791263330" duration="3912000" />
     </task>
     <task id="LOCAL-00001" summary="Added method save() to settings, but don`t save data">
       <created>1526574245267</created>
@@ -394,7 +401,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201528000" />
+    <option name="totallyTimeSpent" value="212697000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -407,14 +414,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1288" height="1004" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49591598" visible="true" weight="0.20413026" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48773006" visible="true" weight="0.20413026" />
       <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.48768863" weight="0.23103851" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5186656" side_tool="true" weight="0.24504083" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4813344" weight="0.20770128" />
-      <window_info anchor="bottom" id="Run" order="4" weight="0.23920654" />
-      <window_info id="npm" order="3" sideWeight="0.504084" side_tool="true" visible="true" weight="0.20413026" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.23920654" />
+      <window_info id="npm" order="3" sideWeight="0.5122699" side_tool="true" visible="true" weight="0.20413026" />
       <window_info id="Structure" order="1" sideWeight="0.5029172" side_tool="true" weight="0.20413026" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49722" weight="0.42707118" />
       <window_info id="Favorites" order="2" sideWeight="0.4982497" side_tool="true" weight="0.20413026" />
@@ -785,34 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classis/Fraction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="188" column="37" selection-start-line="188" selection-start-column="37" selection-end-line="188" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ExercList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="89" column="17" lean-forward="true" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/libs/lsgroups.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -830,10 +810,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ExercList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Statistic.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="121" column="19" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
+        <state relative-caret-position="9548">
+          <caret line="435" column="19" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classis/Fraction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="223" column="9" lean-forward="true" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
         </state>
       </provider>
     </entry>

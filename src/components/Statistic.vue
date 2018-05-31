@@ -94,7 +94,7 @@
   </fieldset>
 
   <div id="statistic-box">
-    <div v-for="(el , key) in displayed" :key="key" class="statItem" :class="{right:el.isRight}">
+    <div v-for="(el , key) in displayed" class="statItem" :class="{right:el.isRight}">
       <h3>{{timeFMT(el.time)}}</h3>
       <span class="katex" v-katex="el.answer"></span>
       <span v-if="showRights" class="katex" v-katex="el.right"></span>
@@ -433,6 +433,7 @@
 }
 #filters{
   margin-left: 2em;
+  margin-bottom: 2em;
   vertical-align: top;
   display: inline-block;
   width: 20em;

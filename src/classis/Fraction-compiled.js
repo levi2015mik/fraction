@@ -169,23 +169,48 @@ var Fraction = function () {
         }
       };
 
+      var firstCode = 0,
+          secondCode = 0;
+
+      // Генерируем только такие дроби, в которых дробная часть не равна единице
       if (config.onlyFrac) {
         while (num === denom) {
+          firstCode++;
+
+          // Аварийный перезапуск
+          if (firstCode === 50) return Fraction.generate(config);
+
+          // Запрет нуля в числителе и знаменателе
           if (config.notZero) {
             while (denom === 0 || num === 0) {
+              secondCode++;
+              if (secondCode === 1000) alert("Big inner notZero");
               generate();
             }
+          }
+
+          // Запрет нуля только в числителе
+          else {
+              while (denom === 0) {
+                if (secondCode === 1000) alert("Big inner");
+                secondCode++;
+                generate();
+              }
+            }
+        }
+        if (num === denom) alert(firstCode);
+      }
+
+      // Генерация примера, в котором числитель может быть равен знаменателю
+      else {
+          if (config.notZero) while (denom === 0 || num === 0) {
+            secondCode++;
+            generate();
           } else while (denom === 0) {
+            secondCode++;
             generate();
           }
         }
-      } else {
-        if (config.notZero) while (denom === 0 || num === 0) {
-          generate();
-        } else while (denom === 0) {
-          generate();
-        }
-      }
 
       return new Fraction(num, denom, whole, false);
     }

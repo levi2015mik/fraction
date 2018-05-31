@@ -3,13 +3,14 @@
       <div id="fone" v-if="showSelectTemplates">
         <div id="dialog">
           <p>Выберите шаблон задания <button @click="showSelectTemplates=false">[X]</button></p>
-          <button
+          <a
+            href="#"
             v-for="(template, name, id) in templates"
             :key="id"
             @click="addNew(name)"
           >
             {{name}}
-          </button>
+          </a>
         </div>
       </div>
         <ul>
@@ -21,6 +22,8 @@
         </ul>
       <hr/>
       <button class="add" @click="addNew()">Новое задание</button>
+      <button class="add">Удалить все задания</button>
+      <button class="add">Удалить статистику</button>
     </div>
 </template>
 
@@ -89,6 +92,7 @@
   }
 #list button.add{
   font-size: 1.2em;
+  margin-right: 1em;
 }
   ul{padding: 0}
   li{
@@ -132,7 +136,7 @@
     padding: 0;
     font-size: 1em;
   }
-  #dialog button{
+  #dialog a{
     display: block;
     margin-left: 1.5em;
     margin-bottom: 1.5em;
