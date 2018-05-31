@@ -4,11 +4,6 @@
     <list default="true" id="d5dc2728-5c79-4258-ba83-e9d93f9254d6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classis/Fraction-compiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classis/Fraction-compiled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classis/Fraction-compiled.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/classis/Fraction-compiled.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classis/Fraction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classis/Fraction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ExercList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ExercList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Statistic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Statistic.vue" afterDir="false" />
     </list>
     <ignored path="Fraction.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,38 +52,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExercList.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ExercList.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state relative-caret-position="313">
+              <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fraction.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Fraction.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classis/Fraction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="223" column="9" lean-forward="true" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Statistic.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Statistic.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9548">
-              <caret line="435" column="19" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
+            <state relative-caret-position="347">
+              <caret line="211" column="18" lean-forward="true" selection-start-line="211" selection-start-column="18" selection-end-line="211" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -157,8 +134,8 @@
         <option value="$PROJECT_DIR$/src/libs/connect.js" />
         <option value="$PROJECT_DIR$/src/components/ExercList.vue" />
         <option value="$PROJECT_DIR$/src/components/Statistic.vue" />
-        <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/classis/Fraction.js" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
       </list>
     </option>
   </component>
@@ -374,7 +351,7 @@
       <workItem from="1527693400737" duration="676000" />
       <workItem from="1527708930206" duration="3887000" />
       <workItem from="1527766693500" duration="2694000" />
-      <workItem from="1527791263330" duration="3912000" />
+      <workItem from="1527791263330" duration="7967000" />
     </task>
     <task id="LOCAL-00001" summary="Added method save() to settings, but don`t save data">
       <created>1526574245267</created>
@@ -401,7 +378,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212697000" />
+    <option name="totallyTimeSpent" value="216752000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -416,15 +393,15 @@
     <frame x="-4" y="-4" width="1288" height="1004" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48773006" visible="true" weight="0.20413026" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48801127" visible="true" weight="0.20413026" />
       <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.48768863" weight="0.23103851" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5186656" side_tool="true" weight="0.24504083" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4813344" weight="0.20770128" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.23920654" />
-      <window_info id="npm" order="3" sideWeight="0.5122699" side_tool="true" visible="true" weight="0.20413026" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.23920654" />
+      <window_info id="npm" order="3" sideWeight="0.5119887" side_tool="true" visible="true" weight="0.20413026" />
       <window_info id="Structure" order="1" sideWeight="0.5029172" side_tool="true" weight="0.20413026" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49722" weight="0.42707118" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49722" visible="true" weight="0.17269544" />
       <window_info id="Favorites" order="2" sideWeight="0.4982497" side_tool="true" weight="0.20413026" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49086577" weight="0.2462077" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -831,17 +808,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
+    <entry file="file://$PROJECT_DIR$/src/classis/Fraction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="347">
+          <caret line="211" column="18" lean-forward="true" selection-start-line="211" selection-start-column="18" selection-end-line="211" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classis/Fraction.js">
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="223" column="9" lean-forward="true" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
+        <state relative-caret-position="313">
+          <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
         </state>
       </provider>
     </entry>

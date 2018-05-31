@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Главное меню</router-link>
-      <router-link to="/statistic">Статистика</router-link>
-    </nav>
+    <header>
+      <h1>Сокращение дробей</h1>
+      <nav>
+        <router-link to="/">Главное меню</router-link>
+        <router-link to="/statistic">Статистика</router-link>
+      </nav>
+    </header>
 
     <router-view/>
     <footer>
@@ -37,14 +40,26 @@ export default {
 html body{
   background: #f5f5f5;
 }
+header{
+  margin-top: 3em;
+  margin-left: 5em;
+  margin-bottom: 3em;
+}
 nav{
   /*margin:0.6em;*/
-  margin-top: 2em;
-  margin-left: 4em;
+  margin-top: 0.6em;
+  margin-left: 2em;
   font-size: 1.3em;
 }
+h1{
+  margin-bottom: 0.5em;
+  color: #006666;
+  font-family: "Cylfaen",serif;
+  font-size: 3em;
+  font-variant: small-caps;
+}
 nav a{
-  padding-right: 0.5em;
+  padding-right: 1.5em;
 }
 a{
   color: #00C;
