@@ -100,6 +100,16 @@
       <span v-if="showRights" class="katex" v-katex="el.right"></span>
       <router-link v-if="showLinks" :to="/test/+el.eid">{{getExerciseName(el.eid)}}</router-link>
     </div>
+    <div v-if="displayed.length === 0 && statistic.length === 0" class="statItem">
+      <h3>Статистика отсутствует</h3>
+      <span class="info">Решите какое ни будь задание, чтобы появилась статистика </span>
+    </div>
+
+    <div v-else-if="displayed.length === 0" class="statItem info">
+      <h3>В этой категории статистика отсутствует</h3>
+      <span class="info">Выберите другую категорию</span>
+    </div>
+
   </div>
 </div>
 </template>
@@ -129,6 +139,8 @@
           showRights:{default:true}
 
         },
+        created(){
+        },
         computed:{
           /**
            * Список статистики, полученной из store.
@@ -147,6 +159,7 @@
            * @return {*[]}
            */
           displayed(){
+
             let interval;
             let data = this.statistic;
 
@@ -187,8 +200,12 @@
            * @return {*[]}
            */
           months(){
+
             let data = this.statistic;
             let out = [];
+
+            if(data[0] === undefined)
+              return [];
 
             let lastMonth  = new Date(data[0].time).toLocaleDateString().substr(-7); // Предыдущий месяц
             let startMonth = 0; // Начало нового месяца во входном массиве
@@ -200,7 +217,6 @@
                 month = new Date(data[i].time).toLocaleDateString().substr(-7);
               else month = "end";
               if (lastMonth !== month) {
-                console.log(lastMonth + " " + month);
                 out.push({
                   time: lastMonth,
                   interval: [startMonth]
@@ -222,8 +238,12 @@
            * @return {*[]}
            */
           days(){
+
             let data = this.statistic;
             let out = [];
+
+            if(data[0] === undefined)
+              return [];
 
             let interval;
             if(this.monthInt == "-1")
@@ -275,6 +295,10 @@
             let data = this.statistic;
             let out = [];
 
+            // Проверка на наличие данных - позволяет избежать ошибки
+            if(data[0] === undefined)
+              return [];
+
             let lastHour = new Date(data[interval[0]].time).getHours(); // Предидущий час
             let startHour = interval[0]; // Начало нового часа во входном массиве
             let lastAddedHour = 0; // Последний добавленный час в выходном массиве
@@ -325,12 +349,19 @@
            * и отфильтрованной выборке
            */
           rightFullStatistic(){
+            if(this.statistic === undefined)
+              return undefined;
+
             return this.statistic.reduce((sum,el)=>{
               if(el.isRight) return sum + 1;
               else return sum
             },0)
           },
+
           rightDisplayedStatistic(){
+            if(this.statistic === undefined)
+              return undefined;
+
             return this.displayed.reduce((sum,el)=>{
               if(el.isRight) return sum + 1;
               else return sum

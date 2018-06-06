@@ -58,6 +58,9 @@ export default new Vuex.Store({
         return el._id !== id;
       });
     },
+    delAllExercises: function delAllExercises(state) {
+      state.exercises = [];
+    },
 
 
     /**
@@ -67,6 +70,9 @@ export default new Vuex.Store({
      */
     pushStatistic: function pushStatistic(state, payload) {
       state.statistic.push(payload);
+    },
+    delStatistic: function delStatistic(state) {
+      state.statistic = [];
     },
 
 
@@ -99,7 +105,7 @@ export default new Vuex.Store({
           dispatch = _ref.dispatch,
           state = _ref.state;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-        var data;
+        var data, el;
         return _regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -118,13 +124,36 @@ export default new Vuex.Store({
               case 4:
                 data = _context.sent;
 
-                data.forEach(function (el) {
-                  return commit("addExercise", el);
-                });
+                console.log(data);
+
+                _context.t0 = _regeneratorRuntime.keys(data);
+
+              case 7:
+                if ((_context.t1 = _context.t0()).done) {
+                  _context.next = 14;
+                  break;
+                }
+
+                el = _context.t1.value;
+
+                if (data.hasOwnProperty(el)) {
+                  _context.next = 11;
+                  break;
+                }
+
+                return _context.abrupt("continue", 7);
+
+              case 11:
+                commit("addExercise", data[el]);
+                _context.next = 7;
+                break;
+
+              case 14:
+
                 commit("dataLoaded");
                 return _context.abrupt("return", true);
 
-              case 8:
+              case 16:
               case "end":
                 return _context.stop();
             }
@@ -150,6 +179,7 @@ export default new Vuex.Store({
             switch (_context2.prev = _context2.next) {
               case 0:
                 el = {};
+
                 // Клонирование объекта, хоть не красиво -
                 // единственный способ получить рабочую схему
 
@@ -208,12 +238,14 @@ export default new Vuex.Store({
     /**
      * Удаление упражнения по его _id
      * @param commit
+     * @param state
      * @param id
      */
     deleteExercise: function deleteExercise(_ref4, id) {
       var _this3 = this;
 
-      var commit = _ref4.commit;
+      var commit = _ref4.commit,
+          state = _ref4.state;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3() {
         var acc;
         return _regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -221,7 +253,7 @@ export default new Vuex.Store({
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return connect.deleteExercises(id);
+                return connect.deleteExercises(id, state);
 
               case 2:
                 acc = _context3.sent;
@@ -245,6 +277,41 @@ export default new Vuex.Store({
         }, _callee3, _this3);
       }))();
     },
+    delAllExercises: function delAllExercises(_ref5) {
+      var _this4 = this;
+
+      var commit = _ref5.commit;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee4() {
+        var acc;
+        return _regeneratorRuntime.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return connect.deleteAllExercises();
+
+              case 2:
+                acc = _context4.sent;
+
+                if (!acc) {
+                  _context4.next = 8;
+                  break;
+                }
+
+                commit("delAllExercises");
+                return _context4.abrupt("return", true);
+
+              case 8:
+                return _context4.abrupt("return", false);
+
+              case 9:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, _this4);
+      }))();
+    },
 
 
     /**
@@ -258,30 +325,30 @@ export default new Vuex.Store({
      * @param state
      * @param params
      */
-    loadStatistic: function loadStatistic(_ref5, params) {
-      var _this4 = this;
+    loadStatistic: function loadStatistic(_ref6, params) {
+      var _this5 = this;
 
-      var commit = _ref5.commit,
-          state = _ref5.state;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee4() {
+      var commit = _ref6.commit,
+          state = _ref6.state;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee5() {
         var statistic;
-        return _regeneratorRuntime.wrap(function _callee4$(_context4) {
+        return _regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
                 if (!state.loadedStat) {
-                  _context4.next = 2;
+                  _context5.next = 2;
                   break;
                 }
 
-                return _context4.abrupt("return", false);
+                return _context5.abrupt("return", false);
 
               case 2:
-                _context4.next = 4;
+                _context5.next = 4;
                 return connect.loadStatistic(params);
 
               case 4:
-                statistic = _context4.sent;
+                statistic = _context5.sent;
 
                 statistic.forEach(function (el) {
                   commit("pushStatistic", el);
@@ -290,10 +357,10 @@ export default new Vuex.Store({
 
               case 7:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, _this4);
+        }, _callee5, _this5);
       }))();
     },
 
@@ -304,14 +371,20 @@ export default new Vuex.Store({
      * @param state
      * @param stat
      */
-    pushStatistic: function pushStatistic(_ref6, stat) {
-      var commit = _ref6.commit,
-          state = _ref6.state;
+    pushStatistic: function pushStatistic(_ref7, stat) {
+      var commit = _ref7.commit,
+          state = _ref7.state;
 
       stat.time = Date.now();
       stat.uid = state.uid;
       commit("pushStatistic", stat);
       connect.pushStatistic(stat, state.statistic);
+    },
+    delStatistic: function delStatistic(_ref8) {
+      var commit = _ref8.commit;
+
+      connect.delStatistic();
+      commit("delStatistic");
     }
   }
 });

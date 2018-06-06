@@ -10,7 +10,7 @@
 
     <router-view/>
     <footer>
-      version 0.0.2<br/>
+      version 0.0.3<br/>
       &copy; Michael Levitsky
     </footer>
   </div>

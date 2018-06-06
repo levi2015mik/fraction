@@ -54,6 +54,10 @@ export default new Vuex.Store({
       state.exercises = state.exercises.filter(el=>el._id !== id)
     },
 
+    delAllExercises(state){
+      state.exercises = [];
+    },
+
     /**
      * Добавление новой записи статистики
      * @param state
@@ -61,6 +65,10 @@ export default new Vuex.Store({
      */
     pushStatistic(state,payload){
       state.statistic.push(payload)
+    },
+
+    delStatistic(state){
+      state.statistic = []
     },
 
     /**
@@ -89,7 +97,14 @@ export default new Vuex.Store({
     async loadExercises({commit,dispatch,state}, params) {
       if(state.loaded)return false;
       let data = await connect.loadExercises(params);
-      data.forEach(el=>commit("addExercise",el));
+      console.log(data);
+
+      for(let el in data){
+        if(!data.hasOwnProperty(el))
+          continue;
+        commit("addExercise", data[el]);
+      }
+
       commit("dataLoaded");
       return true;
     },
@@ -101,6 +116,7 @@ export default new Vuex.Store({
      */
     async saveNewExercise({commit},component){
       let el = {};
+
       // Клонирование объекта, хоть не красиво -
       // единственный способ получить рабочую схему
       for(let name in templates[component]) {
@@ -138,13 +154,23 @@ export default new Vuex.Store({
     /**
      * Удаление упражнения по его _id
      * @param commit
+     * @param state
      * @param id
      */
-    async deleteExercise({commit},id){
-      let acc = await connect.deleteExercises(id);
+    async deleteExercise({commit,state},id){
+      let acc = await connect.deleteExercises(id,state);
       if(acc) {
         commit("delExercise", id);
         return true
+      }
+      else return false;
+    },
+
+    async delAllExercises({commit}){
+      let acc = await connect.deleteAllExercises();
+      if(acc) {
+        commit("delAllExercises");
+        return true;
       }
       else return false;
     },
@@ -180,6 +206,10 @@ export default new Vuex.Store({
       stat.uid = state.uid;
       commit("pushStatistic",stat);
       connect.pushStatistic(stat,state.statistic);
+    },
+    delStatistic({commit}){
+      connect.delStatistic();
+      commit("delStatistic");
     }
   }
 })

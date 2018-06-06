@@ -22,8 +22,8 @@
         </ul>
       <hr/>
       <button class="add" @click="addNew()">Новое задание</button>
-      <button class="add">Удалить все задания</button>
-      <button class="add">Удалить статистику</button>
+      <button class="add" @click="delAll">Удалить все задания</button>
+      <button class="add" @click="delStatistic">Удалить статистику</button>
     </div>
 </template>
 
@@ -76,6 +76,12 @@
               else{}
               return true;
             }
+          },
+          async delAll() {
+            let result = await store.dispatch("delAllExercises");
+          },
+          async delStatistic(){
+            let result = await  store.dispatch("delStatistic")
           }
       }
   }

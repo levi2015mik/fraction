@@ -18,6 +18,7 @@ import lsGroups from "./lsgroups"
 const LSNAME = "fracMenu";  // Название набора данных из lsGroups
 const STATISTIC = "stat";   // Название элемента из localStorage,
                             // в котором хранится статистика
+let exercises;              // В этой переменной сохранен объект, управляющий localStorage
 
 let exercisesStub = [
   {
@@ -58,21 +59,32 @@ export default {
       }
 
       // Загрузка из localStorage
-      if(params.local)
-        return lsGroups.read(LSNAME);
+      if(params.local){
+        exercises = new lsGroups.Element(LSNAME);
+        return exercises.getAll()
+      }
+
   },
   async saveExercise(params){
-    return lsGroups.write(LSNAME,params);
+    let id = Date.now();
+    exercises.set(id,params);
+    return id
 
   },
 
   async updateExercises(num,value){
-    lsGroups.update(LSNAME,num,value);
+    exercises.set(num,value);
     return true
   },
-  async deleteExercises(id){
-    return lsGroups.del(LSNAME,id);
 
+  async deleteExercises(id){
+    exercises.del(id);
+    return true
+  },
+
+  async deleteAllExercises(){
+    exercises.delAll();
+    return true;
   },
 
   async loadStatistic(){
@@ -88,5 +100,8 @@ export default {
    */
   async pushStatistic(el,collection){
     localStorage[STATISTIC] = JSON.stringify(collection)
+  },
+  delStatistic(){
+    delete localStorage[STATISTIC]
   }
 }

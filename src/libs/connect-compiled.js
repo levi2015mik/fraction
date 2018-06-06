@@ -21,6 +21,7 @@ import lsGroups from "./lsgroups";
 var LSNAME = "fracMenu"; // Название набора данных из lsGroups
 var STATISTIC = "stat"; // Название элемента из localStorage,
 // в котором хранится статистика
+var exercises = void 0; // В этой переменной сохранен объект, управляющий localStorage
 
 var exercisesStub = [{
   _id: 2424242,
@@ -72,13 +73,14 @@ export default {
 
             case 4:
               if (!params.local) {
-                _context.next = 6;
+                _context.next = 7;
                 break;
               }
 
-              return _context.abrupt("return", lsGroups.read(LSNAME));
+              exercises = new lsGroups.Element(LSNAME);
+              return _context.abrupt("return", exercises.getAll());
 
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -90,13 +92,17 @@ export default {
     var _this2 = this;
 
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2() {
+      var id;
       return _regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              return _context2.abrupt("return", lsGroups.write(LSNAME, params));
+              id = Date.now();
 
-            case 1:
+              exercises.set(id, params);
+              return _context2.abrupt("return", id);
+
+            case 3:
             case "end":
               return _context2.stop();
           }
@@ -112,7 +118,7 @@ export default {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              lsGroups.update(LSNAME, num, value);
+              exercises.set(num, value);
               return _context3.abrupt("return", true);
 
             case 2:
@@ -131,9 +137,10 @@ export default {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              return _context4.abrupt("return", lsGroups.del(LSNAME, id));
+              exercises.del(id);
+              return _context4.abrupt("return", true);
 
-            case 1:
+            case 2:
             case "end":
               return _context4.stop();
           }
@@ -141,33 +148,52 @@ export default {
       }, _callee4, _this4);
     }))();
   },
-  loadStatistic: function loadStatistic() {
+  deleteAllExercises: function deleteAllExercises() {
     var _this5 = this;
 
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee5() {
-      var data;
       return _regeneratorRuntime.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              data = localStorage[STATISTIC];
+              exercises.delAll();
+              return _context5.abrupt("return", true);
 
-              if (!(data === undefined)) {
-                _context5.next = 3;
-                break;
-              }
-
-              return _context5.abrupt("return", []);
-
-            case 3:
-              return _context5.abrupt("return", JSON.parse(data));
-
-            case 4:
+            case 2:
             case "end":
               return _context5.stop();
           }
         }
       }, _callee5, _this5);
+    }))();
+  },
+  loadStatistic: function loadStatistic() {
+    var _this6 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee6() {
+      var data;
+      return _regeneratorRuntime.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              data = localStorage[STATISTIC];
+
+              if (!(data === undefined)) {
+                _context6.next = 3;
+                break;
+              }
+
+              return _context6.abrupt("return", []);
+
+            case 3:
+              return _context6.abrupt("return", JSON.parse(data));
+
+            case 4:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, _this6);
     }))();
   },
 
@@ -178,22 +204,25 @@ export default {
    * @param collection
    */
   pushStatistic: function pushStatistic(el, collection) {
-    var _this6 = this;
+    var _this7 = this;
 
-    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee6() {
-      return _regeneratorRuntime.wrap(function _callee6$(_context6) {
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee7() {
+      return _regeneratorRuntime.wrap(function _callee7$(_context7) {
         while (1) {
-          switch (_context6.prev = _context6.next) {
+          switch (_context7.prev = _context7.next) {
             case 0:
               localStorage[STATISTIC] = _JSON$stringify(collection);
 
             case 1:
             case "end":
-              return _context6.stop();
+              return _context7.stop();
           }
         }
-      }, _callee6, _this6);
+      }, _callee7, _this7);
     }))();
+  },
+  delStatistic: function delStatistic() {
+    delete localStorage[STATISTIC];
   }
 };
 

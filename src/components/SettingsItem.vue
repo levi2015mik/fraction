@@ -18,7 +18,8 @@
              v-else-if="textType"
              v-model.lazy="value"
              :id="name"
-             title="1234"
+             title=""
+             size="40"
       />
       <input type="checkbox"
             v-else-if="checkboxType"

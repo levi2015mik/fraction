@@ -7,6 +7,61 @@
 
 let lsGroups = {};
 
+/**
+ * Класс по работе с localStorage эмулирует работу с хэш - таблицами
+ * TODO Перевод в главный элемент файла
+ * @type {lsGroups.Element}
+ */
+lsGroups.Element = class{
+  /**
+   * Имя рабочего массива
+   * @param name
+   */
+  constructor(name){
+    this.name = name
+  }
+
+  /**
+   * Догбавление или обновление свойства
+   * @param key
+   * @param value
+   */
+  set(key,value){
+    let name = `${this.name}_${key}`;
+    localStorage[name] = JSON.stringify(value);
+  }
+  get(key){
+    let name = `${this.name}_${key}`;
+    let data = localStorage[name];
+    if(data === undefined)
+      return JSON.parse(data);
+    else return undefined
+  }
+  del(key){
+    let name = `${this.name}_${key}`;
+    delete localStorage[name];
+  }
+  getAll(){
+    let out = {};
+    for (let name in localStorage) {
+      let el = name.split("_");
+      if (el[0] === this.name) {
+        out[el[1]] = JSON.parse(localStorage[name])
+      }
+    }
+
+    return out;
+  }
+
+  delAll(){
+    for(let name in localStorage){
+      let el = name.split("_");
+      if (el[0] === this.name)
+        delete localStorage[name];
+    }
+  }
+};
+
 lsGroups.collection = [];
 
 /**
@@ -65,7 +120,6 @@ lsGroups.write = function(name,value){
     let count = lsGroups.collection.length;
     lsGroups.collection.push(value);
     objToStorage(value,name + "_" + count);
-    return count;
   } catch(err) {
     return err;
   }
@@ -118,6 +172,7 @@ lsGroups.del = function(name, num){
     lsGroups.collection.splice(num,1);
     delAll();
     lsGroups.write(name);
+    console.log(lsGroups.collection);
     return true;
 
   } catch (err) {
